@@ -168,6 +168,24 @@ Follow this checklist **in order**:
 
 ---
 
+## Build & Test
+
+```bash
+# Build (compile + test + package)
+./mvnw clean verify
+
+# Run tests only
+./mvnw test
+
+# Run locally (H2 in-memory, all actuators)
+./mvnw spring-boot:run -Dspring-boot.run.profiles=local
+
+# Package production JAR (skip tests)
+./mvnw clean package -DskipTests
+```
+
+---
+
 ## Key Files Quick Reference
 
 | File                                              | Purpose                                  |

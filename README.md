@@ -24,28 +24,35 @@ optimized for AI coding assistants — GitHub Copilot, Claude, Cursor, Windsurf.
 ```
 spring-boot-ai-template/
 ├── .github/
-│   └── copilot-instructions.md       ← AI assistant context (read by Copilot/Claude/Cursor)
+│   ├── copilot-instructions.md       ← AI assistant context (Copilot/Claude/Cursor)
+│   └── skills/
+│       └── developer.md              ← Canonical developer skills profile
+├── .cursorrules                       ← Cursor AI rules
+├── .windsurfrules                     ← Windsurf AI rules
+├── CLAUDE.md                          ← Claude AI context
+├── lombok.config                      ← Lombok project-wide settings
 ├── docs/
+│   ├── adr/                           ← Architecture Decision Records
 │   └── api/
-│       └── openapi.yaml              ← API contract — source of truth
+│       └── openapi.yaml               ← API contract — source of truth
 ├── src/
 │   ├── main/
 │   │   ├── java/com/example/template/
 │   │   │   ├── Application.java
-│   │   │   ├── api/v1/               ← REST controllers (versioned)
-│   │   │   ├── config/               ← OpenApiConfig, ActuatorConfig
+│   │   │   ├── api/v1/                ← REST controllers (versioned)
+│   │   │   ├── config/                ← OpenApiConfig, ActuatorConfig
 │   │   │   ├── domain/
-│   │   │   │   ├── entity/           ← JPA entities
-│   │   │   │   └── enums/            ← Domain enumerations
+│   │   │   │   ├── entity/            ← JPA entities
+│   │   │   │   └── enums/             ← Domain enumerations
 │   │   │   ├── dto/
-│   │   │   │   ├── request/          ← Inbound payloads (validated records)
-│   │   │   │   └── response/         ← Outbound representations (records)
-│   │   │   ├── exception/            ← ApiException hierarchy + GlobalExceptionHandler
-│   │   │   ├── mapper/               ← MapStruct interfaces
-│   │   │   ├── repository/           ← Spring Data JPA repositories
+│   │   │   │   ├── request/           ← Inbound payloads (validated records)
+│   │   │   │   └── response/          ← Outbound representations (records)
+│   │   │   ├── exception/             ← ApiException hierarchy + GlobalExceptionHandler
+│   │   │   ├── mapper/                ← MapStruct interfaces
+│   │   │   ├── repository/            ← Spring Data JPA repositories
 │   │   │   └── service/
-│   │   │       ├── *.java            ← Business-logic interfaces
-│   │   │       └── impl/             ← Implementations
+│   │   │       ├── *.java             ← Business-logic interfaces
+│   │   │       └── impl/              ← Implementations
 │   │   └── resources/
 │   │       ├── application.yaml
 │   │       ├── application-local.yaml
@@ -53,7 +60,9 @@ spring-boot-ai-template/
 │   └── test/
 │       ├── java/com/example/template/
 │       │   ├── ApplicationTests.java
-│       │   └── api/v1/UserControllerTest.java
+│       │   ├── api/v1/UserControllerTest.java      ← @WebMvcTest example
+│       │   ├── repository/UserRepositoryTest.java  ← @DataJpaTest example
+│       │   └── service/impl/UserServiceImplTest.java ← Unit test example
 │       └── resources/
 │           └── application-test.yaml
 └── pom.xml

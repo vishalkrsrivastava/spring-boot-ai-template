@@ -19,3 +19,11 @@ Read that file to understand:
 For architecture, package layout, and coding conventions specific to this codebase, also read:
 
 **[`.github/copilot-instructions.md`](.github/copilot-instructions.md)**
+
+## Build & Test
+
+```bash
+./mvnw clean verify    # Build + test
+./mvnw test            # Tests only
+./mvnw spring-boot:run # Run locally (H2)
+```
