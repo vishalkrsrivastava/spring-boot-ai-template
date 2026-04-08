@@ -1,0 +1,36 @@
+# ── LOCAL DEVELOPMENT PROFILE ────────────────────────────────────────────────
+# Activated automatically when spring.profiles.active=local (default).
+# Uses H2 in-memory database — no external dependencies required.
+
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: jdbc:h2:mem:devdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: ""
+  h2:
+    console:
+      enabled: true
+      path: /h2-console   # http://localhost:8080/h2-console
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+
+# Expose every actuator endpoint locally for easier debugging
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+
+logging:
+  level:
+    org.hibernate.SQL: DEBUG
+    org.hibernate.orm.jdbc.bind: TRACE
